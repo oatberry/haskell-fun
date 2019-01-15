@@ -1,6 +1,7 @@
 module Main where
 
 import qualified Data.Text                     as T
+import qualified Data.Text.IO                  as T.IO
 import           System.Environment             ( getArgs )
 import           System.Exit                    ( die )
 
@@ -27,7 +28,7 @@ main = do
   args                <- getArgs
   (char, base, count) <- parse args
   validate char base count
-  putStr . T.unpack $ pyramids (T.singleton char) base count
+  T.IO.putStr $ pyramids (T.singleton char) base count
 
 usage = "Usage: pyramids [character] <basesize> <count>"
 
