@@ -41,6 +41,6 @@ parse _                   = die usage
 
 validate :: Char -> Int -> Int -> IO ()
 validate char base count
-  | even base               = die "error: must use an even base size"
-  | base <= 0 || count <= 0 = die "error: quantities cannot be non-positive"
+  | even base               = die "error: base size must be an odd positive integer"
+  | base <= 0 || count <= 0 = die "error: sizes cannot be non-positive"
   | otherwise               = return ()
